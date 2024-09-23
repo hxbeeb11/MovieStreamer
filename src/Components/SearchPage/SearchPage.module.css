@@ -1,0 +1,28 @@
+.movieCardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 288px);
+  gap: 20px;
+  justify-content: center;
+}
+
+.loaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.loader {
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 30px;
+  animation: l1 1s linear infinite alternate;
+}
+.loader:before {
+  content: "Searching...";
+}
+@keyframes l1 {
+  to {
+    opacity: 0;
+  }
+}

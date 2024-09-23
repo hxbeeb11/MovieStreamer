@@ -1,0 +1,19 @@
+.loader-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.loader {
+    width: 300px;
+    height: 20px;
+    background:
+     linear-gradient(#000 0 0) 0/0% no-repeat
+     #ddd;
+    animation: l1 3000ms linear;
+  }
+  @keyframes l1 {
+      100% {background-size:100%}
+  }
+  

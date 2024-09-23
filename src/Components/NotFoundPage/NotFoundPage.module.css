@@ -1,0 +1,31 @@
+.container {
+    text-align: center;
+    padding: 50px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .heading {
+    font-size: 100px;
+    color: #ff6f61;
+  }
+  
+  .message {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .homeLink {
+    font-size: 18px;
+    color: #fff;
+    background-color: #007bff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .homeLink:hover {
+    background-color: #0056b3;
+  }
+  

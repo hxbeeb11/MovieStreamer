@@ -1,0 +1,54 @@
+
+.a {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.input {
+  background-color: rgba(230, 230, 230, 1);
+}
+
+.no-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+.nav {
+  background-color: #fff;
+}
+
+.search-form {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.recent-searches-dropdown {
+  position: absolute;
+  top: 100%;
+  width: 358px;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+

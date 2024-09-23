@@ -1,0 +1,161 @@
+h1 {
+  font-weight: 600;
+  font-size: 60px;
+}
+
+p {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+img {
+  margin-right: 4px;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 1328px;
+  height: 727px;
+  box-sizing: content-box;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.homecontent {
+  position: relative;
+  width: 650px;
+  height: 466px;
+  z-index: 2;
+  margin-top: 96px;
+  margin-left: 151px;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  width: 1362px;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  gap: 20px;
+}
+
+.description {
+  width: 100%;
+  height: max-content;
+  background-color: rgba(26, 26, 26, 0.06);
+  padding: 50px;
+  border-radius: 12px;
+}
+
+.playbutton {
+  width: 220px;
+  height: 59px;
+  border-radius: 35px;
+  padding: 13px 62px;
+  background-color: black;
+  color: white;
+}
+
+.attributes {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  height: max-content;
+  padding: 50px;
+  background-color: rgba(26, 26, 26, 0.06);
+  border-radius: 12px;
+}
+
+.attribute {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.button {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: #444;
+}
+
+.ratingboxes {
+  display: flex;
+  gap: 20px;
+}
+
+.imdbrating {
+  background-color: rgba(212, 212, 212, 1);
+  width: 621px;
+  height: auto;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.loaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.loader {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  overflow: hidden;
+}
+.loader::before {
+  content: "Loading...";
+  color: #0000;
+  text-shadow: 0 0 0 #000, 10ch 0 0 #fff, 20ch 0 0 #000;
+  background: linear-gradient(
+      90deg,
+      #0000 calc(100% / 3),
+      #000 0 calc(2 * 100% / 3),
+      #0000 0
+    )
+    left/300% 100%;
+  animation: l23 2s infinite;
+}
+
+@keyframes l23 {
+  50% {
+    background-position: center;
+    text-shadow: -10ch 0 0 #000, 0 0 0 #fff, 10ch 0 0 #000;
+  }
+  100% {
+    background-position: right;
+    text-shadow: -20ch 0 0 #000, -10ch 0 0 #fff, 0 0 0 #000;
+  }
+}
