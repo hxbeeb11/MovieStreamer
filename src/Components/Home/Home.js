@@ -2,7 +2,7 @@ import styles from "./Home.module.css";
 import Card from "../Card/Card";
 import { useState, useEffect, useCallback } from "react";
 
-function MovieSection({ genre, movies, isLoading }) {
+function MovieSection({ genre, movies = [], isLoading }) {
   return (
     <div className={`${styles.moviecontainer} mt-5`}>
       <div style={{ float: "right", width: "93%" }}>
@@ -14,6 +14,8 @@ function MovieSection({ genre, movies, isLoading }) {
       <div className={`${styles.movies} ms-3`}>
         {isLoading ? (
           <p>Loading {genre.toLowerCase()} movies...</p>
+        ) : !movies || movies.length === 0 ? (
+          <p>No {genre.toLowerCase()} movies found</p>
         ) : (
           movies.map((movie) => <Card key={movie.id} data={movie} />)
         )}
@@ -34,10 +36,9 @@ function Home() {
 
   const fetchMovies = useCallback(async (genreId) => {
     try {
-      const response = await fetch(`${apiUrl}&with_genres=${genreId}`, {
+      const response = await fetch(`${apiUrl}&api_key=${API_KEY}&with_genres=${genreId}`, {
         headers: {
-          Authorization: `Bearer ${API_KEY}`,
-          accept: "application/json",
+          'Content-Type': 'application/json'
         },
       });
       const data = await response.json();

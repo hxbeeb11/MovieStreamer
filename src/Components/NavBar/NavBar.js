@@ -81,27 +81,8 @@ function NavBar({ movieName, setMovieName }) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item me-5">
-              <Link
-                className="a nav-link active"
-                aria-current="page"
-                to="/movies"
-              >
-                Movies
-              </Link>
-            </li>
-            <li className="nav-item me-5">
-              <Link className="a nav-link active" to="/webseries">
-                Series
-              </Link>
-            </li>
-            <li className="nav-item me-5">
-              <button className="a nav-link active btn btn-link" style={{ border: 'none', background: 'none', padding: 0 }}>
-                Contact
-              </button>
-            </li>
-            <li className="nav-item me-5">
               <Link className="a nav-link active" to="/about">
-                About Us
+                About
               </Link>
             </li>
           </ul>

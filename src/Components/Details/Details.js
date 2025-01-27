@@ -12,12 +12,14 @@ function Details() {
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, {
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
-            accept: "application/json",
-          },
-        });
+        const response = await fetch(
+          `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        );
         
         if (!response.ok) {
           throw new Error('Failed to fetch movie details');

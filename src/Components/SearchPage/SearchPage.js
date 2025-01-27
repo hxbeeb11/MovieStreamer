@@ -14,22 +14,32 @@ function SearchPage({ movieName }) {
     setLoading(true);
     setError(null);
 
-    fetch(
-      `https://api.themoviedb.org/3/search/movie?query=${movieName}&include_adult=false&language=en-US&page=1`,
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
-          accept: "application/json",
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then(({ results }) => {
-        setMovieData(results || []);
+    const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${encodeURIComponent(movieName)}&include_adult=false&language=en-US&page=1`;
+    console.log('Searching:', searchUrl);
+
+    fetch(searchUrl, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log('Search response:', data);
+        if (data.results && data.results.length > 0) {
+          setMovieData(data.results);
+        } else {
+          setMovieData([]);
+        }
         setLoading(false);
       })
       .catch((err) => {
-        setError("Failed to fetch movies.");
+        console.error("Search error:", err);
+        setError("Failed to fetch movies. Please try again.");
         setLoading(false);
       });
   }, [movieName]);
@@ -41,7 +51,7 @@ function SearchPage({ movieName }) {
           <div className={styles.loader}></div>
         </div>
       ) : error ? (
-        <p>{error}</p>
+        <p className={styles.error}>{error}</p>
       ) : (
         <>
           <Hero movieName={movieName} />
@@ -51,7 +61,7 @@ function SearchPage({ movieName }) {
               movieData.map((movie) => <Card key={movie.id} data={movie} />)
             ) : (
               <div className={styles.loaderContainer}>
-                <p>No movies found for "{movieName}".</p>
+                <p>No movies found for "{movieName}". Try checking the spelling or use different keywords.</p>
               </div>
             )}
           </div>
