@@ -1,6 +1,6 @@
 import styles from "./Home.module.css";
 import Card from "../Card/Card";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 function MovieSection({ genre, movies, isLoading }) {
   return (
@@ -32,7 +32,7 @@ function Home() {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const apiUrl = "https://api.themoviedb.org/3/discover/movie?language=en-US&page=1&include_adult=false";
 
-  const fetchMovies = async (genreId) => {
+  const fetchMovies = useCallback(async (genreId) => {
     try {
       const response = await fetch(`${apiUrl}&with_genres=${genreId}`, {
         headers: {
@@ -46,7 +46,7 @@ function Home() {
       console.error("Error fetching movies:", error);
       return [];
     }
-  };
+  }, [API_KEY, apiUrl]);
 
   useEffect(() => {
     const fetchAllMovies = async () => {
@@ -71,7 +71,7 @@ function Home() {
     };
 
     fetchAllMovies();
-  }, []);
+  }, [fetchMovies]);
 
   return (
     <>

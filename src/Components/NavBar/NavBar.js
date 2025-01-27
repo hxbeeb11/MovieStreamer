@@ -95,9 +95,9 @@ function NavBar({ movieName, setMovieName }) {
               </Link>
             </li>
             <li className="nav-item me-5">
-              <a className="a nav-link active" href="#">
+              <button className="a nav-link active btn btn-link" style={{ border: 'none', background: 'none', padding: 0 }}>
                 Contact
-              </a>
+              </button>
             </li>
             <li className="nav-item me-5">
               <Link className="a nav-link active" to="/about">
@@ -112,7 +112,6 @@ function NavBar({ movieName, setMovieName }) {
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
-                aria-expanded={showRecentSearches}
                 style={{ width: "358px" }}
                 onFocus={() => setShowRecentSearches(true)}
                 value={movieName}
